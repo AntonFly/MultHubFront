@@ -1,0 +1,32 @@
+<p>
+
+  SUBS: {{subs.length}} // сделать ссыль на стр со всеми сабами (например)
+  <br>
+  position: {{curPosition}}
+</p>
+
+<div style="color: blue">
+  <h3 style="font-size: 50px;display: inline-block">{{projectName}}</h3>
+  <h1 style="font-size:20px;padding-left: 50px;display: inline-block">Followers: {{subs.length}}</h1>
+</div>
+<div>
+  <!--{{projectData.Project.projectid}}-->
+  <nav>
+    <a routerLink="/project/{{projectData.Project.projectid}}/main" >Main</a> |
+    <a routerLink="/project/{{projectData.Project.projectid}}/files">Files</a> |
+    <a routerLink="/project/{{projectData.Project.projectid}}/devs">Developers</a> |
+    <a routerLink="/project/{{projectData.Project.projectid}}/about" >About project</a>
+  </nav>
+</div>
+<div>
+<input (click)="addPost()" *ngIf="isManager" type="button" value="AddPost">
+<!--посты-->
+</div>
+// не забыть переделать отправку под картинку
+<app-project-contents> </app-project-contents>
+
+
+<!--комменты-->
+<!--<div ngFor="let i of post">-->
+  <!--lol-->
+<!--</div>-->

@@ -1,10 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template:
+            `<div>
+              <app-bar></app-bar>
+              <router-outlet></router-outlet>
+            </div>`
 })
-export class AppComponent {
-  title = 'MultHub';
+export class AppComponent implements OnInit {
+  title = 'LABA 4';
+  time: string;
+
+  constructor() {
+    setInterval(() => {
+      this.time = new Date().toLocaleTimeString();
+    }, 1000);
+  }
+
+  ngOnInit() {
+
+  }
 }

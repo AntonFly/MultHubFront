@@ -1,0 +1,42 @@
+<div id = "loginDiv">
+  <h2 >Авторизация</h2>
+  <hr class="hrC"/>
+  <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="hitIt">
+      <div class="inLogin">
+
+        <input placeholder="  пользователь" type="text"  formControlName="username" id="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors  }" />
+
+      </div>
+
+      <div class="inLogin">
+        <input placeholder="  пароль" type="password" formControlName="password" id="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors  }" />
+
+      </div>
+    </div>
+
+    <div style="" class="form-group">
+      <div style="display: inline-block">
+        <button [disabled]="loading" class="btn1">Вход</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <br/>
+        <a [routerLink]="['/register']" class="regLink">Регистрация</a>
+      </div>
+
+      <div style="display: inline-block">
+
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback"> <!-- засабмичено и ошибка -->
+          <div class="error" *ngIf="f.username.errors.required">Введите логин</div>  <!-- отсутствует юзернейм -->
+        </div>
+
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">   <!-- если сабмит и есть ошибки -->
+          <div class="error" *ngIf="f.password.errors.required">Введите пароль</div>    <!-- если ошибка пустого пароля -->
+        </div>
+        <app-alert style="color: red"></app-alert>
+      </div>
+
+    </div>
+
+
+  </form>
+</div>

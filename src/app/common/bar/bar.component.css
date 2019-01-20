@@ -1,0 +1,11 @@
+#bar{
+  top: 0;
+  left: 0;
+  background-color: rgba(188,188,188,0.9);
+}
+
+#bar *{
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}

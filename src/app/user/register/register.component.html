@@ -1,0 +1,54 @@
+  <div class="rounded_corners" id="mainBlock">
+    <!--<div></div>-->
+    <div id ="registerDiv">
+
+      <h2>Регистрация</h2>
+      <hr class="hrC"/>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <div class="hitIt">
+          <div class="inRegistr">
+            <input placeholder="Имя" type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+          </div>
+
+          <div class="inRegistr">
+            <input placeholder="Фамилия" type="text" formControlName="surName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.surName.errors }" />
+          </div>
+
+          <div class="inRegistr">
+            <!--<input placeholder="Логин" (keyup)="checkUsers($event)" type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />-->
+            <input placeholder="Логин" type="text" formControlName="login" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.login.errors }" />
+          </div>
+
+          <div class="inRegistr">
+            <input placeholder="Пароль" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div class="error" *ngIf="f.password.errors.minlength">мин 6 символов</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div style="display: inline-block">
+            <button [disabled]="loading" class="btn1">Зарегестрироваться</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <br>
+            <a [routerLink]="['/login']" class="regLink">Вернуться</a>
+          </div>
+
+          <div style="display: inline-block;color: red">
+            {{error}}
+            <app-alert></app-alert>
+          <div  *ngIf="submitted && (f.name.errors || f.surName.errors || f.login.errors || f.password.errors)" class="invalid-feedback" >
+            <div  class="error" *ngIf=" f.name.errors.required || f.surName.errors.required || f.login.errors.required || f.password.errors.required"> Заполните все поля формы </div>
+
+          </div>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+
+
+  </div>
