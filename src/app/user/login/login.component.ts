@@ -63,6 +63,8 @@ export class LoginComponent implements OnInit {
 //          подсос projPos'ov
             this.userServ.getAllProjPos().subscribe(
               response => {
+                // console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+                // console.log(response)
                 localStorage.setItem('positions', JSON.stringify(response));
               }
             );

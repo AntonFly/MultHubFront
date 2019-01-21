@@ -9,7 +9,7 @@ import {HttpResponse} from '@angular/common/http';
 @Component({
   templateUrl: 'register.component.html',
   styleUrls: ['./register.component.css']
-  })
+})
 // проверка логина и почты на существуование
 
 export class RegisterComponent implements OnInit {
@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   error: String = '';
+  emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,7 +30,9 @@ export class RegisterComponent implements OnInit {
       name: ['', Validators.required],
       surName: ['', Validators.required],
       login: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['',  Validators.pattern(this.emailPattern)],
+      mobile: ['',  Validators.pattern('^((\\+[0-900]-?)|8)?[0-9]{10}$')]
     });
   }
 
@@ -64,17 +67,18 @@ export class RegisterComponent implements OnInit {
         .pipe(first())
         .subscribe(
           (data: any) => {
-            if (data.msg === 'false')
+            if (data.msg === 'false') {
               this.error = 'Такой логин занят';
-            else this.error = '';
+            }
+            else { this.error = ''; }
           }
         );
-    } else this.error = '';
+    } else { this.error = ''; }
   }
 
   setErrorTimeout(msg) {
     this.error = msg;
-    let timer = setTimeout(() => {
+    const timer = setTimeout(() => {
       this.error = '';
       clearTimeout(timer);
     }, 2000);

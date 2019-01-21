@@ -15,7 +15,7 @@ export class UserService {
 
 /////////////////////////////////////// надо сделать ебать!
   checkIfExists(id) {
-    return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/view/userPageInfo' + id)
+    return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/view/try' + id)
       .pipe(map( response => {
         if (response) {
             console.log(response);
@@ -68,11 +68,11 @@ export class UserService {
       ));
   }
 
-  sendMessage(msg){
+  sendMessage(login,toLogin,msg,dialog){
     let headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'});
     let options = { headers: headers };
-    var body = "login=diva"  + "&toLogin=anton" + "&message=" + msg + "&dialog=1";
+    var body = "login="+login  + "&toLogin="+ toLogin + "&message=" + msg + "&dialog="+dialog;
     return this.http.post('http://localhost:8080/MultHubnew_war_exploded/resources/user/sendMessage',body,options)
       .pipe(map( response => {
           if (response) {

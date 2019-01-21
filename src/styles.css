@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.miniAvarar{
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+}
+.custom-toast{
+  margin-right: 10px;
+  /*background-color: antiquewhite;*/
+}

@@ -11,6 +11,7 @@ export class ProjectPostComponent implements OnInit {
 
   time: string;
   text: string;
+  projectName: string;
 
   constructor() { }
 
@@ -19,6 +20,7 @@ export class ProjectPostComponent implements OnInit {
     // this.time = this.postObj.name;
     this.time = this.postObj.time;
     this.text = this.postObj.text;
+    // this.projectName = this.postObj.projectName.name;
   }
 
 }

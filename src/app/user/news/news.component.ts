@@ -17,8 +17,9 @@ export class NewsComponent implements OnInit {
       (response: any[] ) => {
         this.get = response;
         for(var i = 0; i < response.length; i++) {
-          this.projects.push( (response[i])[0]);
-          for(var j = 1; j< response[i].length; j++) {
+          this.projects.push( (response[i])[response[i].length - 1]);
+          for(var j = 0; j < response[i].length - 1; j++) {
+            (response[i])[j].projectName = (response[i])[response[i].length - 1];
             this.posts.push((response[i])[j]);
           }
         }

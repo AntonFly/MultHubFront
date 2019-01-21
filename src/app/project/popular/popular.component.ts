@@ -20,7 +20,19 @@ export class PopularComponent implements OnInit {
   ngOnInit() {
        this.viewServ.getPopular().subscribe(
          (response: object[] ) => {
+           console.log(response);
         this.postsObj = response;
+           // this.postsObj = response.sort((n1,n2) => {  сортировка
+           //   if (n1 > n2) {
+           //     return 1;
+           //   }
+           //
+           //   if (n1 < n2) {
+           //     return -1;
+           //   }
+           //
+           //   return 0;
+           // });
 
       },
       err => {

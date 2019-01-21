@@ -31,8 +31,9 @@ export class ViewService {
 
   getDialogs(){
     return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/view/dialogs' + JSON.parse(localStorage.getItem('currentUser')).login)
-      .pipe(map( response => {
+      .pipe(map( (response: any[]) => {
           if (response) {
+            console.log(response);
             return response;
           }
         }
@@ -73,4 +74,25 @@ export class ViewService {
       ));
   }
 
+  developersPageProjectInfo(projectId) {
+    return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/view/projDev' + projectId)
+      .pipe(map( (response: any[] ) => {
+          if (response) {
+            console.log(response);
+            return response;
+          }
+        }
+      ));
+  }
+
+  getMessages(dialogId){
+    return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/view/messages' + dialogId + '&' + JSON.parse(localStorage.getItem('currentUser')).login)
+      .pipe(map( (response: any[] ) => {
+          if (response) {
+            console.log(response);
+            return response;
+          }
+        }
+      ));
+  }
 }

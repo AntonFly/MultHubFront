@@ -1,8 +1,7 @@
 <p>
-
-  SUBS: {{subs.length}} // сделать ссыль на стр со всеми сабами (например)
+  // сделать ссыль на стр со всеми сабами (например)
   <br>
-  position: {{curPosition}}
+  ur position in projects: {{curPosition}} (temp)
 </p>
 
 <div style="color: blue">
@@ -19,11 +18,12 @@
   </nav>
 </div>
 <div>
-<input (click)="addPost()" *ngIf="isManager" type="button" value="AddPost">
+<!--<input (click)="addPost()"  type="button" value="AddPost">-->
+  <!--*ngIf="isManager"  наверх-->
 <!--посты-->
 </div>
 // не забыть переделать отправку под картинку
-<app-project-contents> </app-project-contents>
+<app-project-contents [postObj] ="posts"> </app-project-contents>
 
 
 <!--комменты-->

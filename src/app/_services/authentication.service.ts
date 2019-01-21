@@ -21,7 +21,6 @@ export class AuthenticationService {
         console.log(user);
         if (user && user.login) {
           localStorage.setItem('currentUser', JSON.stringify(user));
-          this.data.setUser(user);
         }
         return user;
       }));

@@ -1,10 +1,23 @@
 <p>
-  Send on new posts:
-  <p-toggleButton onLabel="Send" offLabel="Not send"
-                  onIcon="fa fa-check" offIcon="fa fa-times" iconPos="right" ></p-toggleButton>
-  <!--[(ngModel)]="val1"-->
-  <br><br>
-  Send on new invites:
-  <p-toggleButton onLabel="Send" offLabel="Not send"
-                  onIcon="fa fa-check" offIcon="fa fa-times" iconPos="right" ></p-toggleButton>
-</p>
+<h3>Настройки профиля</h3>
+<h4>Настройки приватности:</h4>
+Отправлять оповещения о новых постах:
+<p-toggleButton onLabel="Send" offLabel="Not send"
+                onIcon="fa fa-check" offIcon="fa fa-times" iconPos="right" ></p-toggleButton>
+<!--[(ngModel)]="val1"-->
+<br><br>
+Отправлять оповещения о новых приглашениях:
+<!--<p-toggleButton [(ngModel)]="user.sendOnInvites" [style]="{'width':'150px'}"></p-toggleButton>-->
+<p-toggleButton onLabel="Send" offLabel="Not send" [(ngModel)]="user.sendOnInvites"
+                onIcon="fa fa-check" offIcon="fa fa-times" iconPos="right"   ></p-toggleButton>
+<h4>Основные настройки:</h4>
+<img id="img" height="200" width="200" src="http://localhost:8080/MultHubnew_war_exploded/resources/user/getAvatar{{user.login}}" >
+<!--<img id="'img">-->
+<div>
+  <div style="display: inline-block">
+    <input type="file" (change) ="onFileSelected($event);reload()" >
+  </div>
+  {{user.login}}<br>
+
+</div>
+

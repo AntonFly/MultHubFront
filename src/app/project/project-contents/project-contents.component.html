@@ -1,8 +1,18 @@
-<p>
-  project-contents works!
-  {{curUrl}}
-</p>
 
-<div *ngFor="let iter of posts">
-<app-project-post [postObj] ="iter" > </app-project-post>
+<div *ngIf="isMain">
+  <div *ngFor="let iter of postObj">
+    <app-project-post [postObj] ="iter" > </app-project-post>
+  </div>
+</div>
+
+<div *ngIf="isFiles">
+files
+</div>
+<div *ngIf="isDevs">
+  <div *ngFor="let itr of curDevs">
+    <h3 routerLink="/profile/{{itr.login.login}}">{{itr.login.login}}</h3>
+  </div>
+</div>
+<div *ngIf="isAbout">
+  about
 </div>

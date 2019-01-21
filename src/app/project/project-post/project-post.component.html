@@ -1,5 +1,5 @@
   <div>
-    <h2>post</h2>
+    <h2 *ngIf="postObj.projectName">{{projectName}}</h2>    <!--если пост в новостях в обьект поста добавится поле проекта -->
     <h3>{{text}}</h3>
     <h3>{{time}}</h3>
   </div>

@@ -1,0 +1,9 @@
+<div *ngIf="isDialogs">
+     <div *ngFor="let itr of dialogs">
+      <app-dialogs  [postObj]="itr"></app-dialogs>
+      </div>
+</div>
+
+<div *ngIf="isMessages">
+  <app-messages [userSobisednik] = "curSobesednik" [postObj] = "dialogs" ></app-messages>
+</div>

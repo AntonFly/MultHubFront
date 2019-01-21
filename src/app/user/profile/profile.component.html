@@ -3,7 +3,8 @@
     <!--{{JSON.parse(localStorage.getItem('currentUser')).login}}-->
     <!--<img src="../../assets/nad_oblakami.jpg" style="width: 200px;height: 200px;">-->
     <!--{{pic}}-->
-    <img id="img" height="200" width="200" src="http://localhost:8080/MultHubnew_war_exploded/resources/user/getAvatardiva" >
+
+    <img *ngIf = "picShown" id="img" height="200" width="200" src="http://localhost:8080/MultHubnew_war_exploded/resources/user/getAvatar{{login}}" >
     <!--<img id="'img">-->
   </div>
   <div style="display: inline-block">

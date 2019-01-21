@@ -20,6 +20,11 @@ import { ProjectPageComponent } from './project/project-page/project-page.compon
 import {AlertComponent} from './_directives';
 import { CreateProjectComponent } from './project/create-project/create-project.component';
 import { ProjectPresComponent } from './project/project-pres/project-pres.component';
+import { ProjectPostComponent } from './project/project-post/project-post.component';
+import { ProjectContentsComponent } from './project/project-contents/project-contents.component';
+import { SettingsComponent } from './common/settings/settings.component';
+import { DialogsComponent } from './user/dialogs/dialogs.component';
+import { DialogsPageComponent } from './user/dialogs-page/dialogs-page.component';
 
 // guards
 import {AuthGuard} from './_guards';
@@ -29,14 +34,18 @@ import {AlertService, AuthenticationService, DataService, UserService, ProjectSe
 // primeng
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import {MenuItem} from 'primeng/api';
 // helpers
 import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor} from './_helpers';
 
 // directives
 import {PostObjDirective} from './_directives';
-import { ProjectPostComponent } from './project/project-post/project-post.component';
-import { ProjectContentsComponent } from './project/project-contents/project-contents.component';
-import { SettingsComponent } from './common/settings/settings.component';
+import { MessagesComponent } from './user/messages/messages.component';
+import { UserPointerComponent } from './user/user-pointer/user-pointer.component';
 
 
 
@@ -46,6 +55,8 @@ const appRoutes: Routes = [
   {path : 'profile/:login' , component: ProfileComponent, canActivate: [AuthGuard] },
   // {path: 'project/:projectid', redirectTo: 'project/:projectid/main'},
   {path: 'project/:projectid/:contents', component: ProjectPageComponent},
+  {path: 'dialogs/:dialogid', component: DialogsPageComponent},
+  {path: 'dialogs', component: DialogsPageComponent},
   {path: 'news', component: NewsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -75,6 +86,10 @@ const appRoutes: Routes = [
     ProjectPostComponent,
     ProjectContentsComponent,
     SettingsComponent,
+    DialogsComponent,
+    DialogsPageComponent,
+    MessagesComponent,
+    UserPointerComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -83,7 +98,11 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     OverlayPanelModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    ToastModule,
+    InputTextareaModule,
+    ContextMenuModule,
+
   ],
   providers: [
               AlertService,
@@ -93,6 +112,7 @@ const appRoutes: Routes = [
               UserService,
               ProjectService,
               ViewService,
+              MessageService
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // provider used to create fake backend

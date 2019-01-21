@@ -13,7 +13,9 @@ export class ProfileComponent implements OnInit {
   pic: File;
   // message: string = 'mess';
   name: string;
+  login: string;
   posts;
+  picShown: boolean = false;
 
   constructor(private router: ActivatedRoute,
               private userServ: UserService,
@@ -24,9 +26,11 @@ export class ProfileComponent implements OnInit {
     this.router.params.subscribe(value => this.viewServ.getProfileById(value.login).subscribe(
       (response: any) => {
           this.name = response.user.name;
+          this.login = response.user.login;
           if (response.posts.length !== 0)
           this.posts = response.posts[0].text;
-      }
+          this.picShown = true;
+      },err =>{}
     ));
   }
 
@@ -51,6 +55,6 @@ export class ProfileComponent implements OnInit {
   sendMessage()
   {
     alert('lol');
-    this.userServ.sendMessage('mess').subscribe(response => {alert(response); });
+    this.userServ.sendMessage('diva','xam_lua', 'lolkek',2).subscribe(response => {alert(response); });
   }
 }

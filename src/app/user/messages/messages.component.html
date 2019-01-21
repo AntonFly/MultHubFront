@@ -1,0 +1,12 @@
+<div *ngFor="let itr of messages">
+  <app-user-pointer *ngIf="!checkCondOfMess(itr)" [user] = "userSobisednik" ></app-user-pointer>
+  <app-user-pointer *ngIf="checkCondOfMess(itr)" [user] = "getCurUser()" ></app-user-pointer>
+  <br>
+  {{itr.text}}
+</div>
+
+<form [formGroup]="messForm" (ngSubmit)="sendNewMsg()">
+<textarea pInputTextarea formControlName="msg" (submit)="setNewMsg($event.target.value)" placeholder="new message"></textarea>
+<input type="submit" value="send" >
+</form>
+<!--[(ngModel)]="newMsg"-->

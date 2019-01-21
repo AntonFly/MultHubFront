@@ -14,7 +14,7 @@ export class ProjectPageComponent implements OnInit {
   projectName: string;
   subs: any[] = [];
   posts: any[];
-  curPosition: string;
+  curPosition: string = 'typical user';
   isManager: boolean;
   isDeveloper: boolean;
 
@@ -39,21 +39,28 @@ export class ProjectPageComponent implements OnInit {
 
   checkCurPos(){
     var positions: any[] = JSON.parse(localStorage.getItem('positions'));
-    console.log(positions[0]);
-    if(positions.length > 0)
-    {
+    console.log('BEFORE POSITIONS')
+    console.log(positions);
+    if(positions.length > 0) {
       console.log(this.projectData);
-      for(var i = 0; i < positions.length; i++){
-        if(positions[i].projectid.projectid == this.projectData.Project.projectid)
-            this.curPosition = positions[i].projpos;
-        else this.curPosition = 'typical user';
+      for (var i = 0; i < positions.length; i++) {
+        if (positions[i].projectid.projectid === this.projectData.Project.projectid)
+          this.curPosition = positions[i].projpos;
       }
-    } else this.curPosition = 'typical user';
-
-    if(this.curPosition == 'MANAGER')
-      this.isManager = true;
-    else if(this.curPosition == 'MANAGER')
-          this.isDeveloper = true;
+      if (this.curPosition == 'MANAGER') {
+        this.isManager = true;
+        this.isDeveloper = false;
+      }
+      else if (this.curPosition == 'DEVELOPER') {
+        this.isManager = false;
+        this.isDeveloper = true;
+      }
+    }
+    else {
+      this.curPosition = 'typical user';
+      this.isManager = false;
+      this.isDeveloper = false;
+    }
   }
 
   addPost(){

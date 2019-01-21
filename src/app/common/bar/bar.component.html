@@ -20,17 +20,26 @@
   <p-overlayPanel #panel>
     <nav>
       <h3 (click)="naviigateToProfile()" > профиль </h3> <br>
-      <h3 routerLink="newProject">  новый проект  </h3><br>
-      <h3 routerLink="login"> сменить акк </h3> <br>
+      <h3 routerLink="dialogs/">  диалоги  </h3><br>
+      <h3 routerLink="newProject">  новый проект(убрать)  </h3><br>
+      <h3 routerLink="login"> сменить акк(убрать) </h3> <br>
       <h3 routerLink="" (click)="quit()" > выйти </h3> <br>
       <h3 routerLink="settings"> настройки</h3>
     </nav>
   </p-overlayPanel>
-</div>
+<!--</div>-->
 <div>
   не забыть про обновление текщих позиций и их обновление<br>
   добавить настройки рассылки<br>
   поменять name проектах на unique<br>
-  выводить ли все посты сразу или как то иначе ы
+  выводить ли все посты сразу или как то иначе ы<br>
+  сортировка по времени новостей и по сабам популярь<br>
+  возврат по стрелочкам из проекта(не между вкладками )<br>
+  компонент аввтар + Имя в котором есть компонент с контекстным меню(добавить в проект(если ты гдето манагер),отправить смс и тд)<br>
+  при создании проекта обновлять позиции<br>
+  если открыто чето связанное с веб сокетами то оно должно моментально обновитсья
+
+
   <hr>
 </div>
+<p-toast [style]="{marginTop: '80px'}" styleClass="custom-toast" key="custom" position="bottom-right"></p-toast>
