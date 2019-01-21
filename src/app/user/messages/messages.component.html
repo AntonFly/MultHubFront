@@ -1,8 +1,17 @@
 <div *ngFor="let itr of messages">
-  <app-user-pointer *ngIf="!checkCondOfMess(itr)" [user] = "userSobisednik" ></app-user-pointer>
-  <app-user-pointer *ngIf="checkCondOfMess(itr)" [user] = "getCurUser()" ></app-user-pointer>
+  <div style="padding-left: 40% " *ngIf="!checkCondOfMess(itr)">
+  <app-user-pointer  [user] = "userSobisednik" ></app-user-pointer>
+    <br>
+    {{itr.text}}
+  </div>
+
+  <div style="margin-left: 60% " *ngIf="checkCondOfMess(itr)">
+  <app-user-pointer  [user] = "getCurUser()" ></app-user-pointer>
+    <br>
+    {{itr.text}}
+  </div>
   <br>
-  {{itr.text}}
+
 </div>
 
 <form [formGroup]="messForm" (ngSubmit)="sendNewMsg()">

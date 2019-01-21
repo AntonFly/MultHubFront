@@ -28,6 +28,8 @@ export class ProjectPageComponent implements OnInit {
   ngOnInit() {
     this.router.params.subscribe(value => this.view.getProjectMainById(value.projectid).subscribe(
       (project: any) => {
+        console.log('PROJEEECT');
+        console.log(project);
         this.projectData = project;
         this.subs = project.Subs;
         this.projectName = project.Project.name;
@@ -63,14 +65,14 @@ export class ProjectPageComponent implements OnInit {
     }
   }
 
-  addPost(){
-    alert(this.projectData.Project.projectid+"AAAAAAAAAAAAAAAAAA");
-    this.projServ.addPost(this.projectData.Project.projectid, 'Here\'s new Post  ooofff!' ).subscribe(
-      response => {
-        console.log(response+'AAAAAAAAAAAA');
-      }
-    )
-  }
+  // addPost(){
+  //   alert(this.projectData.Project.projectid+"AAAAAAAAAAAAAAAAAA");
+  //   this.projServ.addPost(this.projectData.Project.projectid, 'Here\'s new Post  ooofff!' ).subscribe(
+  //     response => {
+  //       console.log(response+'AAAAAAAAAAAA');
+  //     }
+  //   )
+  // }
 
   navig(contents: string){
       this.router2.navigate(['/project/']);

@@ -5,5 +5,7 @@
 </div>
 
 <div *ngIf="isMessages">
-  <app-messages [userSobisednik] = "curSobesednik" [postObj] = "dialogs" ></app-messages>
+  <p-scrollPanel #scroll [style]="{width: '50%', height: '500px'}">
+    <app-messages [userSobisednik] = "curSobesednik" [postObj] = "dialogs" ></app-messages>
+  </p-scrollPanel>
 </div>

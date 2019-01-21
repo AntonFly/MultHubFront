@@ -29,13 +29,23 @@ export class ProjectService {
     return this.http.post(`http://localhost:8080/MultHubnew_war_exploded/resources/project/create`,  body, options);
   }
 
-  addPost(projectId,text){
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'});
-    let options = { headers: headers };
-    var body = "projectId=" + projectId + "&text=" + text ;
+  addPost(file: File, projectId, text){
+    const fd = new FormData();
+    var ext ='noFile';
 
-    return this.http.post(`http://localhost:8080/MultHubnew_war_exploded/resources/project/toPost`,  body, options);
+    if(file) {
+      var fileUrl = file.name;
+      var parts;
+      ext = (parts = fileUrl.split("/").pop().split(".")).length > 1 ? parts.pop() : "";
+
+      fd.append('file', file);
+    }
+
+
+    return this.http.post('http://localhost:8080/MultHubnew_war_exploded/resources/project/toPost'+projectId+'&'+ext+'&'+text,  fd);
   }
+
+
+
 
 }

@@ -1,18 +1,42 @@
 
 <div *ngIf="isMain">
-  <div *ngFor="let iter of postObj">
-    <app-project-post [postObj] ="iter" > </app-project-post>
-  </div>
+
+  <form  *ngIf="isManager" [formGroup]="postForm" (ngSubmit)="addPost()">
+  <input formControlName="file" (change)="onFileChange($event);" type="file">
+    <input formControlName="text" type="text">
+    <input type="submit">
+  </form>
 </div>
 
+
+<p-scrollPanel *ngIf="isMain" [style]="{width: '100%', height: '50%'}">
+  <div *ngIf="isMain">
+    <div *ngFor="let iter of postObj">
+      <app-project-post [postObj] ="iter" > </app-project-post>
+     </div>
+  </div>
+</p-scrollPanel>
+
+
+
+<p-scrollPanel  *ngIf="isFiles" [style]="{width: '50%', height: '500px'}">
 <div *ngIf="isFiles">
-files
+<app-files-page></app-files-page>
 </div>
+</p-scrollPanel>
+
+<p-scrollPanel *ngIf="isDevs"  [style]="{width: '50%', height: '500px'}">
 <div *ngIf="isDevs">
   <div *ngFor="let itr of curDevs">
-    <h3 routerLink="/profile/{{itr.login.login}}">{{itr.login.login}}</h3>
+    <app-user-pointer [user]="itr.login"></app-user-pointer>
+    <br>
+    description: {{itr.description}}
   </div>
 </div>
+</p-scrollPanel>
+
+<p-scrollPanel *ngIf="isAbout" [style]="{width: '50%', height: '500px'}">
 <div *ngIf="isAbout">
-  about
+  {{projectData.Project.description}}
 </div>
+</p-scrollPanel>

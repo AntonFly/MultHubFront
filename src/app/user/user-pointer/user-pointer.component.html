@@ -1,2 +1,4 @@
-<img routerLink="/profile/{{user.login}}" style="display: inline-block" class="miniAvarar" height="20" width="20" src="http://localhost:8080/MultHubnew_war_exploded/resources/user/getAvatar{{user.login}}">
+<img id="img" routerLink="/profile/{{user.login}}" style="display: inline-block" class="miniAvarar" height="20" width="20"
+     alt="avatar" src="http://localhost:8080/MultHubnew_war_exploded/resources/user/getAvatar{{user.login}}">
 <h3 style="display: inline-block" routerLink="/profile/{{user.login}}">{{user.name}} </h3>
+<p-contextMenu [global]="true" [model]="items"></p-contextMenu>

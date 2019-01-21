@@ -1,6 +1,18 @@
-  <div>
-    <h2 *ngIf="postObj.projectName">{{projectName}}</h2>    <!--если пост в новостях в обьект поста добавится поле проекта -->
+<div>
+    <h2 *ngIf="postObj.projectName">{{projectName}}</h2>    <!--!!!! если пост в новостях в обьект поста добавится поле проекта -->
     <h3>{{text}}</h3>
     <h3>{{time}}</h3>
+
+  <div *ngIf="(postObj.filepath != null)">
+    <div *ngIf=" checkIfImgExtention(postObj.filepath)">
+      <img style="height: 500px;width: 500px" src="http://localhost:8080/MultHubnew_war_exploded/resources/project/getFile{{postObj.id}}">
+    </div>
+
+    <div *ngIf=" !checkIfImgExtention(postObj.filepath) ">
+      <a href="http://localhost:8080/MultHubnew_war_exploded/resources/project/getFile{{postObj.id}}"
+         download="SMTH.HZ"> someFile.{{getExt(postObj.filepath)}} </a>
+    </div>
   </div>
-  <br>
+  </div>
+
+<br>

@@ -38,7 +38,7 @@ import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ContextMenuModule} from 'primeng/contextmenu';
-import {MenuItem} from 'primeng/api';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
 // helpers
 import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor} from './_helpers';
 
@@ -46,6 +46,7 @@ import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor} from './_helpers
 import {PostObjDirective} from './_directives';
 import { MessagesComponent } from './user/messages/messages.component';
 import { UserPointerComponent } from './user/user-pointer/user-pointer.component';
+import { FilesPageComponent } from './project/files-page/files-page.component';
 
 
 
@@ -90,6 +91,7 @@ const appRoutes: Routes = [
     DialogsPageComponent,
     MessagesComponent,
     UserPointerComponent,
+    FilesPageComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -102,6 +104,7 @@ const appRoutes: Routes = [
     ToastModule,
     InputTextareaModule,
     ContextMenuModule,
+    ScrollPanelModule
 
   ],
   providers: [
