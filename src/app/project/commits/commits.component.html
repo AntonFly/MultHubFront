@@ -1,3 +1,9 @@
-<p>
-  commits works!
-</p>
+<div>
+  {{zeroCommitRelPath}}
+  <img width="50%" height="50%" src="http://localhost:8080/MultHubnew_war_exploded/resources/project/picForCommits{{projectData.Project.projectid}}&{{commtis[0].filename}}">
+  <h2>Previous commits</h2>
+
+  <div class="commitDiv" *ngFor="let itr of commtis">
+    {{itr.filename}}
+  </div>
+</div>

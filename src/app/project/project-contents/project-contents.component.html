@@ -5,29 +5,26 @@
     <input formControlName="text" type="text">
     <input type="submit">
   </form>
-</div>
-<!--ДОБАВИТЬ КОММИТы-->
-<div *ngIf="isDeveloper">
-  <input type="file" (change)="onFileCommitChange($event);">
-  <input type="button" value="submit" (click)="submitCommit()">
-  <input type="button" value="cancel" (click)="cancelCommit()">
-</div>
 
-
-
-  <div *ngIf="isMain">
-    <div *ngFor="let iter of postObj">
-      <app-project-post [postObj] ="iter" > </app-project-post>
-     </div>
+  <!--ДОБАВИТЬ КОММИТы-->
+  <div *ngIf="isDeveloper">
+    <input type="file" (change)="onFileCommitChange($event);">
+    <input type="button" value="submit" (click)="submitCommit()">
+    <input type="button" value="cancel" (click)="cancelCommit()">
   </div>
+</div>
 
 
+<div *ngIf="isMain">
+   <div *ngFor="let iter of postObj">
+    <app-project-post [postObj] ="iter" > </app-project-post>
+   </div>
+</div>
 
 
 <div *ngIf="isFiles">
 <app-files-page [projectData] = "projectData"></app-files-page>
 </div>
-
 
 
 <div *ngIf="isDevs">
@@ -38,9 +35,12 @@
   </div>
 </div>
 
-
-
 <div *ngIf="isAbout">
   {{projectData.Project.description}}
+</div>
+
+<div *ngIf="filename">
+  <h1>{{filename}}</h1> <br>
+  <app-commits [filename] = "filename" [projectData]="projectData"></app-commits>
 </div>
 

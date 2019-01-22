@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService, ViewService} from '../../_services';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {__param, __values} from 'tslib';
 
 @Component({
@@ -17,7 +17,9 @@ export class ProfileComponent implements OnInit {
   posts;
   picShown: boolean = false;
 
-  constructor(private router: ActivatedRoute,
+  constructor(
+    private router2: Router,
+    private router: ActivatedRoute,
               private userServ: UserService,
               private  viewServ: ViewService) { }
 
@@ -30,7 +32,7 @@ export class ProfileComponent implements OnInit {
           if (response.posts.length !== 0)
           this.posts = response.posts[0].text;
           this.picShown = true;
-      },err =>{}
+      },error1 => {this.router2.navigate(['notFound'])}
     ));
   }
 

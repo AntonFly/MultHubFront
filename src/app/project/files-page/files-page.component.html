@@ -1,3 +1,11 @@
-<p>
-  files-page works!
-</p>
+<div  *ngIf="uniqueFiles" >
+
+  <div routerLink="/project/{{itr.commitid.projectid}}/file/{{getUnderlinePath(itr.filename)}}" class="fileDiv" (click)="changeTofile()" *ngFor="let itr of uniqueFiles">
+    <img width="20px" height="20px" src="http://localhost:8080/MultHubnew_war_exploded/resources/project/picForCommits{{projectData.Project.projectid}}&{{itr.filename}}">
+    <div style="display: inline-block;">{{getUnderlinePath(itr.filename)}}</div>
+    <div>{{itr.commitid.description}}</div>
+    <div style="display: inline-block;">Last commit: {{itr.commitid.time.split(' ').pop().split('.')[0]}}</div>
+  </div>
+
+</div>
+

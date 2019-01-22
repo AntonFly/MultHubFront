@@ -59,6 +59,7 @@ const appRoutes: Routes = [
   {path : 'profile/:login' , component: ProfileComponent, canActivate: [AuthGuard] },
   // {path: 'project/:projectid', redirectTo: 'project/:projectid/main'},
   {path: 'project/:projectid/:contents', component: ProjectPageComponent},
+  {path: 'project/:projectid/file/:filename', component: ProjectPageComponent},
   {path: 'dialogs/:dialogid', component: DialogsPageComponent},
   {path: 'dialogs', component: DialogsPageComponent},
   {path: 'news', component: NewsComponent},

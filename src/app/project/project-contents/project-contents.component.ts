@@ -23,6 +23,7 @@ export class ProjectContentsComponent implements OnInit {
   isDevs: boolean;
   curDevs: any[];
   isAbout: boolean;
+  filename: string;  //для рутинга на коммиты
 
   constructor(
               private formBuilder: FormBuilder,
@@ -58,7 +59,13 @@ export class ProjectContentsComponent implements OnInit {
         if(value.contents === 'about')
           this.isAbout = true;
         else this.isAbout = false;
+        if(value.filename){
+          this.filename = value.filename;
+          alert(value.filename)
+        }
+        else this.filename = undefined;
       }
+
     });
 
     // this.projServ.
@@ -104,6 +111,7 @@ export class ProjectContentsComponent implements OnInit {
     }
     alert('count of files: '+this.files.length);
   }
+
   submitCommit(){
     if(this.files.length > 0) {
       this.projServ.commitFiles(this.files, this.projectid, JSON.parse(localStorage.getItem('currentUser')).login).subscribe(

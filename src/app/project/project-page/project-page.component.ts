@@ -26,18 +26,22 @@ export class ProjectPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.params.subscribe(value => this.view.getProjectMainById(value.projectid).subscribe(
+    this.router.params.subscribe(value =>
+      {
+          this.view.getProjectMainById(value.projectid).subscribe(
       (project: any) => {
-        console.log('PROJEEECT');
-        console.log(project);
-        this.projectData = project;
-        this.subs = project.Subs;
-        this.projectName = project.Project.name;
-        this.posts = project.Posts;
-        this.checkCurPos();
-        this.checkIfSubscribed();
-      }
-    ));
+              console.log('PROJEEECT');
+              console.log(project);
+              this.projectData = project;
+              this.subs = project.Subs;
+              this.projectName = project.Project.name;
+              this.posts = project.Posts;
+              this.checkCurPos();
+              this.checkIfSubscribed();
+            },error1 => {this.router2.navigate(['notFound'])}
+          );
+    }
+    );
   }
 
   checkIfSubscribed(){
@@ -84,9 +88,6 @@ export class ProjectPageComponent implements OnInit {
   //   )
   // }
 
-  navig(contents: string){
-      this.router2.navigate(['/project/']);
-  }
 
 
 }

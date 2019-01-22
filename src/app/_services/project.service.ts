@@ -68,7 +68,28 @@ export class ProjectService {
         }
       ));
   }
+  getProjectFiles(projectId){
+    return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/project/getProjectFiles' + projectId)
+      .pipe(map( response => {
+          if (response) {
+            console.log(response);
+            return response;
+          }
+        }
+      ));
+  }
 
+  getFileCommits(filename, projectid){
+    return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/project/getFileCommits' + filename+'&'+projectid)
+      .pipe(map( response => {
+          if (response) {
+            console.log('AAAAAAAAAAAAA')
+            console.log(response);
+            return response;
+          }
+        }
+      ));
+  }
 
 
 }
