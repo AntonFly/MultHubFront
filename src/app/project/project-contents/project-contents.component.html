@@ -14,23 +14,22 @@
 </div>
 
 
-<p-scrollPanel *ngIf="isMain" [style]="{width: '100%', height: '50%'}">
+
   <div *ngIf="isMain">
     <div *ngFor="let iter of postObj">
       <app-project-post [postObj] ="iter" > </app-project-post>
      </div>
   </div>
-</p-scrollPanel>
 
 
 
-<p-scrollPanel  *ngIf="isFiles" [style]="{width: '50%', height: '500px'}">
+
 <div *ngIf="isFiles">
 <app-files-page [projectData] = "projectData"></app-files-page>
 </div>
-</p-scrollPanel>
 
-<p-scrollPanel *ngIf="isDevs"  [style]="{width: '50%', height: '500px'}">
+
+
 <div *ngIf="isDevs">
   <div *ngFor="let itr of curDevs">
     <app-user-pointer [user]="itr.login"></app-user-pointer>
@@ -38,10 +37,10 @@
     description: {{itr.description}}
   </div>
 </div>
-</p-scrollPanel>
 
-<p-scrollPanel *ngIf="isAbout" [style]="{width: '50%', height: '500px'}">
+
+
 <div *ngIf="isAbout">
   {{projectData.Project.description}}
 </div>
-</p-scrollPanel>
+

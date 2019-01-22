@@ -1,5 +1,5 @@
 <div>
-    <h2 *ngIf="postObj.projectName">{{postObj.projectName.name}}</h2>    <!--!!!! если пост в новостях в обьект поста добавится поле проекта -->
+    <h2 routerLink="/project/{{postObj.projectid}}/main" *ngIf="postObj.projectName">{{postObj.projectName.name}}</h2>    <!--!!!! если пост в новостях в обьект поста добавится поле проекта -->
     <!--<h3>{{postObj.projectName.name}}</h3>-->
     <h3>{{text}}</h3>
     <h3>{{time}}</h3>
