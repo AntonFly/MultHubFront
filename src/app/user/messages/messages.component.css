@@ -1,0 +1,14 @@
+#outerDiv{
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  max-height: 83vh;
+  width: 555px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+#form{
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}

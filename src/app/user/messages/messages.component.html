@@ -1,21 +1,29 @@
-<div *ngFor="let itr of messages">
-  <div style="padding-left: 40% " *ngIf="!checkCondOfMess(itr)">
-  <app-user-pointer  [user] = "userSobisednik" ></app-user-pointer>
-    <br>
-    {{itr.text}}
-  </div>
+<!--<p-scrollPanel id="scroll" #scroll [style]="{width: '50%', height: '85vh'}">-->
+<div #outerDiv id="outerDiv" >
+  <div  *ngFor="let itr of messages">
+    <div  *ngIf="!checkCondOfMess(itr)">
+      <app-user-pointer  [user] = "userSobisednik" ></app-user-pointer>
+      <br>
+      {{itr.text}}
+    </div>
 
-  <div style="margin-left: 60% " *ngIf="checkCondOfMess(itr)">
-  <app-user-pointer  [user] = "getCurUser()" ></app-user-pointer>
+    <div  *ngIf="checkCondOfMess(itr)">
+      <app-user-pointer  [user] = "getCurUser()" ></app-user-pointer>
+      <br>
+      <div style="width: 100%; word-break: break-all" >
+        {{itr.text}}
+      </div>
+    </div>
     <br>
-    {{itr.text}}
-  </div>
-  <br>
 
+  </div>
 </div>
+<!--</p-scrollPanel>-->
 
-<form [formGroup]="messForm" (ngSubmit)="sendNewMsg()">
-<textarea pInputTextarea formControlName="msg" (submit)="setNewMsg($event.target.value)" placeholder="new message"></textarea>
-<input type="submit" value="send" >
-</form>
+<div id="form">
+  <form  [formGroup]="messForm" (ngSubmit)="sendNewMsg()">
+    <textarea pInputTextarea formControlName="msg" (submit)="setNewMsg($event.target.value)" placeholder="new message"></textarea>
+    <input type="submit" value="send" >
+  </form>
+</div>
 <!--[(ngModel)]="newMsg"-->

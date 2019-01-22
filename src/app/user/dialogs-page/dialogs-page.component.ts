@@ -40,7 +40,7 @@ export class DialogsPageComponent implements OnInit {
         for(var i = 0; i < this.dialogs.length;i++)
         {
           if (this.curDialogId === (this.dialogs[i])[0].id){
-            alert('in')
+            // alert('in')
             this.curSobesednik = (this.dialogs[i])[1];
           }
         }
