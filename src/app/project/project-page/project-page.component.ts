@@ -35,16 +35,26 @@ export class ProjectPageComponent implements OnInit {
         this.projectName = project.Project.name;
         this.posts = project.Posts;
         this.checkCurPos();
+        this.checkIfSubscribed();
       }
     ));
   }
 
+  checkIfSubscribed(){
+    if(this.subs){
+      // console.log('asd'+this.subs);
+      for(var i = 0; i < this.subs.length; i++){
+        if(JSON.parse(localStorage.getItem('currentUser')).login === this.subs[i].login){
+            return true;
+        }
+      }
+    }
+    return false;
+  }
+
   checkCurPos(){
     var positions: any[] = JSON.parse(localStorage.getItem('positions'));
-    console.log('BEFORE POSITIONS')
-    console.log(positions);
     if(positions.length > 0) {
-      console.log(this.projectData);
       for (var i = 0; i < positions.length; i++) {
         if (positions[i].projectid.projectid === this.projectData.Project.projectid)
           this.curPosition = positions[i].projpos;

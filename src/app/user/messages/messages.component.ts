@@ -38,7 +38,7 @@ export class MessagesComponent implements OnInit {
     });
 
     this.getMessages();
-    document.getElementById('scroll').moveBar();
+    // document.getElementById('scroll').moveBar();
   }
 
   sendNewMsg() {

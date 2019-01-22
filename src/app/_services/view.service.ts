@@ -44,7 +44,7 @@ export class ViewService {
     return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/view/popular100')
       .pipe(map( response => {
           if (response) {
-            console.log(response);
+            // console.log(response);
             return response;
           }
           return response;

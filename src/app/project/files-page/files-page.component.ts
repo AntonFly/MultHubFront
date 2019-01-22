@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProjectService} from '../../_services';
 
 @Component({
   selector: 'app-files-page',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilesPageComponent implements OnInit {
 
-  constructor() { }
+  @Input('projectData') projectData: any[];
+
+  constructor(private projServ: ProjectService) { }
 
   ngOnInit() {
+    console.log('IN FILES')
+    console.log(this.projectData);
+    // this.projServ.getProjFilesTabInfo()
   }
 
 }

@@ -1,6 +1,6 @@
 <div *ngIf="isDialogs">
-     <div *ngFor="let itr of dialogs">
-      <app-dialogs  [postObj]="itr"></app-dialogs>
+     <div class="dialogDiv"*ngFor="let itr of dialogs">
+      <app-dialogs [postObj]="itr"></app-dialogs>
       </div>
 </div>
 

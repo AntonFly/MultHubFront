@@ -13,8 +13,10 @@ export class ProjectContentsComponent implements OnInit {
   @Input('postObj') postObj: any[];
   @Input('projectData') projectData: any[];
   @Input('isManager') isManager: boolean;
+  @Input('isDeveloper') isDeveloper:boolean;
   postForm: FormGroup;
-  file: File;
+  file: File; //file for post
+  files: File[] = [];
   projectid: string;
   isMain: boolean;
   isFiles: boolean;
@@ -87,6 +89,29 @@ export class ProjectContentsComponent implements OnInit {
       }
     )
   }
-  // ~~~~~~~~~~~~~         ~~~~~~~~~~~~~//
+
+// ~~~~~~~~~~~~~ add commit ~~~~~~~~~~~~~//
+  onFileCommitChange(event){
+    if (event.target.files.length > 0) {
+      this.files.push(event.target.files[0]);
+    }
+    alert('count of files: '+this.files.length);
+  }
+  cancelCommit(){
+    var len = this.files.length;
+    for(var i =0; i < len;i++){
+      this.files.pop();
+    }
+    alert('count of files: '+this.files.length);
+  }
+  submitCommit(){
+    if(this.files.length > 0) {
+      this.projServ.commitFiles(this.files, this.projectid, JSON.parse(localStorage.getItem('currentUser')).login).subscribe(
+        response =>{
+          alert('DONE');
+        }
+      )
+    }
+  }
 
 }

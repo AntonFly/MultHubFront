@@ -22,7 +22,7 @@ export class ProjectPresComponent implements OnInit {
   ngOnInit() {
     //this.viewServ.getPopular();
     //alert(this.postObj.name);
-    console.log(this.postObj);
+    // console.log(this.postObj);
     this.projectName = this.postObj.name;
 
   }

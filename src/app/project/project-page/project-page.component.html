@@ -7,6 +7,9 @@
 <div style="color: blue">
   <h3 style="font-size: 50px;display: inline-block">{{projectName}}</h3>
   <h1 style="font-size:20px;padding-left: 50px;display: inline-block">Followers: {{subs.length}}</h1>
+  <h1 *ngIf = "!checkIfSubscribed()" style="padding-left: 20px;font-size:20px;display: inline-block">follow</h1>
+  <h1 *ngIf = "checkIfSubscribed()"  style="padding-left: 20px;font-size:20px;display: inline-block"> unfollow</h1>
+  <!--<app-followers [users]="projectData.Subs"></app-followers>-->
 </div>
 <div>
   <!--{{projectData.Project.projectid}}-->
@@ -23,7 +26,7 @@
 <!--посты-->
 </div>
 // не забыть переделать отправку под картинку
-<app-project-contents [isManager] = "isManager" [projectData] = "projectData" [postObj] ="posts"> </app-project-contents>
+<app-project-contents [isDeveloper]="isDeveloper" [isManager] = "isManager" [projectData] = "projectData" [postObj] ="posts"> </app-project-contents>
 
 
 <!--комменты-->

@@ -1,7 +1,10 @@
 <!--<div *ngFor="let itr of dialogs">-->
-  Диалог:<br>
-
-  <app-user-pointer [user] = "postObj[1]" ></app-user-pointer>
+<div style="width:50%;display: inline-block">
+  <app-user-pointer style="margin-right: auto;margin-left: auto" [user] = "postObj[1]" ></app-user-pointer>
   <h3 routerLink="/dialogs/{{postObj[0].id}}">{{postObj[2].text}} </h3>
+</div>
+<div style="width:50%;display: inline-block;margin-right: auto;margin-left: auto">
+{{postObj[2].time}}
+</div>
   <!--<app-dialogs routerLink="/dialogs/{{dialogs.dialogs.id}}" postObj="{{dialogs.humans.login}}">{{dialogs.messages.text}}</app-dialogs>-->
 <!--</div>-->

@@ -41,10 +41,33 @@ export class ProjectService {
       fd.append('file', file);
     }
 
-
     return this.http.post('http://localhost:8080/MultHubnew_war_exploded/resources/project/toPost'+projectId+'&'+ext+'&'+text,  fd);
   }
 
+  getProjFilesTabInfo(projId){
+    return this.http.get('http://localhost:8080/MultHubnew_war_exploded/resources/view/projFiles' + projId)
+      .pipe(map( response => {
+          if (response) {
+            console.log(response);
+            return response;
+          }
+        }
+      ));
+  }
+  commitFiles(files: File[], projectid, login){
+    const fd = new FormData();
+    for(var i = 0; i < files.length; i++){
+      fd.append(files[i].name, files[i]);
+    }
+    return this.http.post('http://localhost:8080/MultHubnew_war_exploded/resources/project/addFiles'+login+'&'+projectid,  fd)
+      .pipe(map( response => {
+          if (response) {
+            console.log(response);
+            return response;
+          }
+        }
+      ));
+  }
 
 
 

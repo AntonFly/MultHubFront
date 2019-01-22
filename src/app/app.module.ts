@@ -47,6 +47,9 @@ import {PostObjDirective} from './_directives';
 import { MessagesComponent } from './user/messages/messages.component';
 import { UserPointerComponent } from './user/user-pointer/user-pointer.component';
 import { FilesPageComponent } from './project/files-page/files-page.component';
+import { CommitsComponent } from './project/commits/commits.component';
+import { FollowersComponent } from './common/followers/followers.component';
+import { AddCommitComponent } from './project/add-commit/add-commit.component';
 
 
 
@@ -92,6 +95,9 @@ const appRoutes: Routes = [
     MessagesComponent,
     UserPointerComponent,
     FilesPageComponent,
+    CommitsComponent,
+    FollowersComponent,
+    AddCommitComponent,
   ],
   imports: [
     ReactiveFormsModule,

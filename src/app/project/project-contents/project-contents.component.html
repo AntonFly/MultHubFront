@@ -1,11 +1,16 @@
-
+<!--добавить пост в блог-->
 <div *ngIf="isMain">
-
   <form  *ngIf="isManager" [formGroup]="postForm" (ngSubmit)="addPost()">
   <input formControlName="file" (change)="onFileChange($event);" type="file">
     <input formControlName="text" type="text">
     <input type="submit">
   </form>
+</div>
+<!--ДОБАВИТЬ КОММИТы-->
+<div *ngIf="isDeveloper">
+  <input type="file" (change)="onFileCommitChange($event);">
+  <input type="button" value="submit" (click)="submitCommit()">
+  <input type="button" value="cancel" (click)="cancelCommit()">
 </div>
 
 
@@ -21,7 +26,7 @@
 
 <p-scrollPanel  *ngIf="isFiles" [style]="{width: '50%', height: '500px'}">
 <div *ngIf="isFiles">
-<app-files-page></app-files-page>
+<app-files-page [projectData] = "projectData"></app-files-page>
 </div>
 </p-scrollPanel>
 
